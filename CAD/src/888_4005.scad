@@ -8,10 +8,11 @@ $fn = draft ? 20 : 100;
 module 888_4005(draft = true){
 
     height = 30;
-    magnet_d = 80;
+    magnet_d = 75;
     cylinder_height = magnet_d/2;
     magnet_offset = -0;
     magnet_rotation = 45;
+    magnet_height = 35;
     fixing_distance = 20;
 
     difference()
@@ -38,6 +39,18 @@ module 888_4005(draft = true){
                         rotate([0,0,30])        // otočení do přední části platformy
                             translate([magnet_offset,0, height - 1])
                                 cylinder(d = magnet_d , h = 1);
+                    }
+                    
+                    translate([0,0,25])
+                    difference() {
+                        cylinder(d = magnet_d+10, h = magnet_height+5);
+                        
+                        cylinder(d = magnet_d, h = magnet_height+6);
+                        
+                        for (i=[0:7]) rotate([0, 0, 22.5*i]){
+                            translate([0,0,magnet_height+5])
+                            cube([magnet_d+30,8,10],true);
+                        }
                     }
                     //rotate([0,0,30])        // otočení do přední části platformy
                     //    translate([magnet_offset,0, height/2])
