@@ -10,7 +10,8 @@ module 888_4005(draft = true){
     height = 30;
     magnet_d = 80;
     cylinder_height = magnet_d/2;
-    magnet_offset = 38;
+    magnet_offset = -0;
+    magnet_rotation = 45;
     fixing_distance = 20;
 
     difference()
@@ -42,7 +43,7 @@ module 888_4005(draft = true){
                     //    translate([magnet_offset,0, height/2])
                     //        #cylinder(r = magnet_d/2 , h = height/2);
                 }
-                rotate([0,0,30])        // otočení do přední části platformy
+                rotate([0,0,magnet_rotation])        // otočení do přední části platformy
                     translate([magnet_offset,0,0])
                         rotate([0,0,45])
                             for (i=[0:3]) rotate([0, 0, 90*i]){
@@ -54,9 +55,10 @@ module 888_4005(draft = true){
                             }
 
                 // otvor pro vývody
-                translate([magnet_offset,0,0])
-                    translate([- 57/2, 0, 0])
-                        cylinder(h = 100, d = 8);
+                rotate([0,0,magnet_rotation])        // otočení do přední části platformy
+                  translate([magnet_offset,0,0])
+                      translate([- 57/2, 0, 0])
+                          cylinder(h = 100, d = 8);
             }
         // Cut-out for piston bolts
         pistons_and_bearing();
