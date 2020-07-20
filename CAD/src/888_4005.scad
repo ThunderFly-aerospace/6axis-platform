@@ -43,9 +43,9 @@ module 888_4005(draft = true){
                     
                     translate([0,0,25])
                     difference() {
-                        cylinder(d = magnet_d+10, h = magnet_height+5);
+                        cylinder(d = magnet_d+.5+10, h = magnet_height+5);
                         
-                        cylinder(d = magnet_d, h = magnet_height+6);
+                        cylinder(d = magnet_d+.5, h = magnet_height+6);
                         
                         for (i=[0:7]) rotate([0, 0, 22.5*i]){
                             translate([0,0,magnet_height+5])
