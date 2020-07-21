@@ -45,7 +45,7 @@ module 888_4005(draft = true){
 
                     translate([0,0,25])
                     difference() {
-                        cylinder(d = magnet_d+.5+10, h = magnet_height+10);
+                        cylinder(d = magnet_d+.5+10, h = magnet_height+9.5);
 
                         cylinder(d = magnet_d+.5, h = magnet_height+11);
 
