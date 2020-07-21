@@ -14,6 +14,7 @@ module 888_4005(draft = true){
     magnet_rotation = 45;
     magnet_height = 35;
     fixing_distance = 20;
+    teeth_width = 35;
 
     difference()
     {
@@ -43,13 +44,15 @@ module 888_4005(draft = true){
                     
                     translate([0,0,25])
                     difference() {
-                        cylinder(d = magnet_d+.5+10, h = magnet_height+5);
+                        cylinder(d = magnet_d+.5+10, h = magnet_height+10);
                         
-                        cylinder(d = magnet_d+.5, h = magnet_height+6);
+                        cylinder(d = magnet_d+.5, h = magnet_height+11);
                         
-                        for (i=[0:7]) rotate([0, 0, 22.5*i]){
+                        for (i=[0:7]) rotate([0, 0, 45*i]){
+                            
                             translate([0,0,magnet_height+5])
-                            cube([magnet_d+30,8,10],true);
+                            linear_extrude(height = 10)
+                            polygon(points=[[0,0],[magnet_d+11,teeth_width/2],[magnet_d+11,-teeth_width/2]]);
                         }
                     }
                     //rotate([0,0,30])        // otočení do přední části platformy
