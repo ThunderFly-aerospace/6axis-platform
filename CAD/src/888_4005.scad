@@ -91,7 +91,7 @@ difference()
             }
     else
     {
-        888_4005();
+        888_4005(true);
     }
     // Cut-out cube
     if (draft)
