@@ -46,6 +46,8 @@ module piston_base_cut_out(draft = true)
 
 module piston_holder(draft = true)
 {
+  $fn = draft ? 20 : 100;
+
     difference()
     {
         mirror_copy()
@@ -64,38 +66,47 @@ module piston_holder(draft = true)
     }
 }
 
-difference()
-{
-    // If not draft -> move to print position.
-    if (!draft)
-        translate([0, -platform_base_diameter/2, platform_height/2])
-            rotate([0, 0, 0])
-            {
-                piston_holder(false);
-            }
-    else
-    {
-        rotate_copy([0, 0, 120])
-            rotate_copy([0, 0, 120])
-                piston_holder();
-    }
-    // Cut-out cube
-    #if (draft)
-        translate([0, 0, -platform_height/4])
-            cube([platform_base_diameter*2, platform_base_diameter*2, platform_height]);
+
+module 888_4003(draft){
+
+  $fn = draft ? 20 : 100;
+
+
+  difference()
+  {
+      // If not draft -> move to print position.
+      if (!draft)
+          translate([0, -platform_base_diameter/2, platform_height/2])
+              rotate([0, 0, 0])
+              {
+                  piston_holder(false);
+              }
+      else
+      {
+          rotate_copy([0, 0, 120])
+              rotate_copy([0, 0, 120])
+                  piston_holder();
+      }
+      // Cut-out cube
+      #if (draft)
+          translate([0, 0, -platform_height/4])
+              cube([platform_base_diameter*2, platform_base_diameter*2, platform_height]);
+  }
+      // Draft only - platforms visualisation
+      #if (draft)
+      {
+          translate([0, 0, vertical_distance_of_plaftorms - platform_height/2])
+              cylinder(h = platform_height, d = platform_top_diameter);
+          round_base();
+      }
+      // Draft only - beams visualisation
+      #if (draft)
+          rotate_copy([0, 0, 120])
+              rotate_copy([0, 0, 120])
+                  beam();
+      // Draft only - piston and bearing visualisation
+      #if (draft)
+          pistons_and_bearing();
 }
-    // Draft only - platforms visualisation
-    #if (draft)
-    {
-        translate([0, 0, vertical_distance_of_plaftorms - platform_height/2])
-            cylinder(h = platform_height, d = platform_top_diameter);
-        round_base();
-    }
-    // Draft only - beams visualisation
-    #if (draft)
-        rotate_copy([0, 0, 120])
-            rotate_copy([0, 0, 120])
-                beam();
-    // Draft only - piston and bearing visualisation
-    #if (draft)
-        pistons_and_bearing();
+
+888_4003(draft);

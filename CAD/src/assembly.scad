@@ -1,6 +1,6 @@
 include <../../parameters.scad>
-include <./calculations.scad>
-use <../lib/copyFunctions.scad>
+include <calculations.scad>
+use <lib/copyFunctions.scad>
 use <./888_4003.scad>
 use <./888_4004.scad>
 use <./888_4005.scad>

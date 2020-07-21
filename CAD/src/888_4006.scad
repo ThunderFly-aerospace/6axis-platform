@@ -1,7 +1,7 @@
 include <../../parameters.scad>
-use <../lib/copyFunctions.scad>
-use <../lib/stdlib/bolts.scad>
-use <../lib/print.scad>
+use <lib/copyFunctions.scad>
+use <lib/stdlib/bolts.scad>
+use <lib/print.scad>
 include <./calculations.scad>
 use <./888_4003.scad>
 use <./888_4004.scad>
@@ -44,4 +44,12 @@ print(draft, [0, -platform_base_diameter/2 + piston_holder_size, platform_height
     round_base();
     translate([0, 0, -platform_height/4])
         cube([platform_base_diameter*2, platform_base_diameter*2, platform_height]);
+}
+
+
+module 888_4006(draft){
+
+$fn = draft ? 20 : 100;
+
+  beam(draft);
 }

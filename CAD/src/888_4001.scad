@@ -6,7 +6,7 @@ inner_diameter = M6_screw_diameter;
 rim_outer_diameter=12;
 rim_height = 1.5;
 
-module 888_3016(draft = true){
+module 888_4001(draft = true){
 
     difference(){
         union(){
@@ -17,4 +17,4 @@ module 888_3016(draft = true){
         cylinder(h = 2 * bearing_EFOM_10_h , d = inner_diameter, $fn = 100);
     }
 }
-888_3016();
+888_4001();

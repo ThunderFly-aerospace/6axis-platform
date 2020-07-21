@@ -1,5 +1,5 @@
 include <../../parameters.scad>
-include <./calculations.scad>
+include <calculations.scad>
 use <lib/copyFunctions.scad>
 
 draft = false;
