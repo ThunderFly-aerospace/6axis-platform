@@ -111,6 +111,6 @@ module connecting_holes(draft = true)
                         -(sqrt(35*35 - pow(platform_height/2 - 1.5*M4_nut_diameter, 2)))/2,
                         -6.6*M4_nut_height])
                 rotate([-180/10*8 + acos((platform_height/2 - 1.5*M4_nut_diameter) / 35), 0, 0])
-                    bolt(4, 35, pocket = false);
+                    bolt(4, 35, nut_pocket_size = 10, pocket = false);
     }
 }
