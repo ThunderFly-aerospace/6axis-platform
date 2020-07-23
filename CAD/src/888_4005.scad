@@ -65,14 +65,17 @@ module 888_4005(draft = true){
                                     cylinder(h = 2*cylinder_height, d = M4_screw_diameter);
 
                                 translate([0, 70/2, 0])
-                                   cylinder(h = height - magnet_screw_length, d1 = 3*M4_nut_diameter, d2 = M4_nut_diameter);
+                                   cylinder(h = height - magnet_screw_length, d1 = 3*M4_nut_diameter, d2 = 2*M4_nut_diameter);
                             }
 
                 // otvor pro vývody
                 rotate([0,0,magnet_rotation])        // otočení do přední části platformy
                   translate([magnet_offset,0,0])
                       translate([- 57/2, 0, 0])
+                      {
                           cylinder(h = 100, d = 8);
+                          cylinder(h = 8, d1 = 16, d2 = 8);
+                      }
             }
         // Cut-out for piston bolts
         pistons_and_bearing();
