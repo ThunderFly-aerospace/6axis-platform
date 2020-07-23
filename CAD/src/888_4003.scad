@@ -28,20 +28,8 @@ module piston_base_cut_out(draft = true)
                     mirror_copy([0, 1, 0])
                     {
                         translate([0, -bearing_bolt_distance/2, 15])
-                        {
-                            /*// bolt
-                            cylinder(h = bearing_length, d = M5_screw_diameter);
-                            // nut
-                            translate([0, 0, 20])
-                                cylinder(h = 20, d = M5_nut_diameter, $fn = 6);
-                            // nut pocket
-                            translate([0, -M5_nut_diameter/2 + global_clearance, 20])
-                                cube([50, M5_nut_pocket,
-                                      M5_nut_height + global_clearance]);
-                            */
                             rotate([0,180,0])
-                              bolt(4, 25, pocket = false);
-                        }
+                              bolt(5, 25, pocket = false);
                     }
                 }
 }
