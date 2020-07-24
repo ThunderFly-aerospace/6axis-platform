@@ -1729,6 +1729,11 @@
      <z>42.8167</z>
     </coordinates></vertex>
     <vertex><coordinates>
+     <x>-31.8323</x>
+     <y>-29.1526</y>
+     <z>12.6533</z>
+    </coordinates></vertex>
+    <vertex><coordinates>
      <x>-31.8456</x>
      <y>-29.1854</y>
      <z>12.7902</z>
@@ -1737,11 +1742,6 @@
      <x>-31.85</x>
      <y>-29.2184</y>
      <z>12.9276</z>
-    </coordinates></vertex>
-    <vertex><coordinates>
-     <x>-31.8323</x>
-     <y>-29.1526</y>
-     <z>12.6533</z>
     </coordinates></vertex>
     <vertex><coordinates>
      <x>-31.8101</x>
@@ -10296,34 +10296,34 @@
      <v3>312</v3>
     </triangle>
     <triangle>
-     <v1>7</v1>
+     <v1>108</v1>
      <v2>345</v2>
      <v3>346</v3>
     </triangle>
     <triangle>
-     <v1>10</v1>
-     <v2>7</v2>
+     <v1>7</v1>
+     <v2>108</v2>
      <v3>346</v3>
     </triangle>
     <triangle>
-     <v1>108</v1>
-     <v2>347</v2>
-     <v3>345</v3>
+     <v1>7</v1>
+     <v2>346</v2>
+     <v3>347</v3>
     </triangle>
     <triangle>
-     <v1>7</v1>
-     <v2>108</v2>
-     <v3>345</v3>
+     <v1>10</v1>
+     <v2>7</v2>
+     <v3>347</v3>
     </triangle>
     <triangle>
      <v1>107</v1>
      <v2>348</v2>
-     <v3>347</v3>
+     <v3>345</v3>
     </triangle>
     <triangle>
      <v1>108</v1>
      <v2>107</v2>
-     <v3>347</v3>
+     <v3>345</v3>
     </triangle>
     <triangle>
      <v1>106</v1>
@@ -11286,13 +11286,13 @@
      <v3>14</v3>
     </triangle>
     <triangle>
-     <v1>346</v1>
+     <v1>347</v1>
      <v2>444</v2>
      <v3>12</v3>
     </triangle>
     <triangle>
      <v1>10</v1>
-     <v2>346</v2>
+     <v2>347</v2>
      <v3>12</v3>
     </triangle>
     <triangle>
@@ -17406,7 +17406,7 @@
      <v3>1282</v3>
     </triangle>
     <triangle>
-     <v1>345</v1>
+     <v1>346</v1>
      <v2>1282</v2>
      <v3>1283</v3>
     </triangle>
@@ -17417,18 +17417,18 @@
     </triangle>
     <triangle>
      <v1>444</v1>
-     <v2>346</v2>
+     <v2>347</v2>
      <v3>1283</v3>
     </triangle>
     <triangle>
-     <v1>346</v1>
-     <v2>345</v2>
+     <v1>347</v1>
+     <v2>346</v2>
      <v3>1283</v3>
     </triangle>
     <triangle>
      <v1>348</v1>
      <v2>1282</v2>
-     <v3>347</v3>
+     <v3>345</v3>
     </triangle>
     <triangle>
      <v1>349</v1>
@@ -17916,9 +17916,9 @@
      <v3>1283</v3>
     </triangle>
     <triangle>
-     <v1>347</v1>
+     <v1>345</v1>
      <v2>1282</v2>
-     <v3>345</v3>
+     <v3>346</v3>
     </triangle>
     <triangle>
      <v1>516</v1>
@@ -25761,7 +25761,7 @@
 <metadata type="slic3r.interface_shells">0</metadata>
 <metadata type="slic3r.interior_brim_width">0</metadata>
 <metadata type="slic3r.label_printed_objects">0</metadata>
-<metadata type="slic3r.layer_height">0.2</metadata>
+<metadata type="slic3r.layer_height">0.3</metadata>
 <metadata type="slic3r.match_horizontal_surfaces">0</metadata>
 <metadata type="slic3r.max_fan_speed">100</metadata>
 <metadata type="slic3r.max_layer_height">0.3</metadata>
