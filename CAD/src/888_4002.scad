@@ -41,8 +41,8 @@ module 888_4002(){
       }
       //vyrez pro ulozeni hlavy sroubu M6 do dna
       translate([0,0,bottom_height])
-          cylinder(h=M6_head_height, d=M6_nut_diameter,$fn=6);
-          //cylinder(h=M6_head_height - layer_thickness, d=M6_nut_diameter,$fn=6);
+          //cylinder(h=M6_head_height, d=M6_nut_diameter,$fn=6);
+          cylinder(h=M6_head_height - layer_thickness, d=M6_nut_diameter,$fn=6);
 
 
 
