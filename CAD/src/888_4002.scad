@@ -19,13 +19,20 @@ module 888_4002(){
 
   difference(){
       //cast ktera se pripevni na pist
-      translate([0,0,bottom_height])
-          cylinder(h=connecting_height,d=connecting_diameter,$fn=100);
+      union(){
+          translate([0,0,bottom_height])
+              cylinder(h=connecting_height,d=connecting_diameter,$fn=100);
+          cylinder(h=bottom_height, d1 = bearing_EFOM_10_d1+2, d2 = connecting_diameter, $fn=100);   //zkoseni dna
+
+          //cast ktera prochazi kulovym loziskem
+          translate([0,0,-((bearing_EFOM_10_h/2)-global_clearance)])
+              cylinder(h=(bearing_EFOM_10_h/2)-global_clearance,d=bearing_EFOM_10_d1,$fn=100);
+      }
 
       //vyrez pro nasazeni
       difference(){
            translate([0,0,bottom_height+M6_head_height])
-              cylinder(h=piston_thread_height,d=piston_thread_diameter,$fn=100);
+              cylinder(h=piston_thread_height + global_clearance,d=piston_thread_diameter,$fn=100);
 
           translate([0,piston_cutout/2+5/2,bottom_height+M6_head_height+piston_thread_height/2])
               cube([piston_thread_diameter,5,piston_thread_height],center=true);
@@ -34,16 +41,21 @@ module 888_4002(){
       }
       //vyrez pro ulozeni hlavy sroubu M6 do dna
       translate([0,0,bottom_height])
-          cylinder(h=M6_head_height,d=M6_nut_diameter,$fn=6);
+          cylinder(h=M6_head_height, d=M6_nut_diameter,$fn=6);
+          //cylinder(h=M6_head_height - layer_thickness, d=M6_nut_diameter,$fn=6);
 
-      //pruchod pro sroub
-      cylinder(h=bottom_height,d=M6_screw_diameter,$fn=100);
 
-      //vyrez pro pripevneni na pist pomoci sroubu
+
+      //pruchod pro sroub (zaslepeny kvuli tisku)
+      translate([0,0,-((bearing_EFOM_10_h/2)-global_clearance)])
+          cylinder(h=(bearing_EFOM_10_h/2)-global_clearance + bottom_height - layer_thickness, d=M6_screw_diameter,$fn=100);
+
+
+      //otvor pro pripevneni na pist pomoci sroubu
       rotate([90,0,0]){
           translate([0,insert_nut_connecting_pozition,0])
               cylinder(h=connecting_diameter,d=M6_screw_diameter,$fn=100,center=true);
-      //zplosteni pro zaseknuti matky pri montazi
+      //sestihran pro zapusteni matky pri montazi
           translate([0,insert_nut_connecting_pozition,connecting_diameter/2-M6_nut_height/2])
               cylinder(h=M6_nut_height/2,d=M6_nut_diameter,$fn=6);
           translate([0,insert_nut_connecting_pozition,-connecting_diameter/2])
@@ -51,31 +63,13 @@ module 888_4002(){
       }
   }
   //zaslepka pro tisk
-  translate([0,0,bottom_height])
+  /*translate([0,0,bottom_height])
     cylinder(h=layer_thickness,d=connecting_diameter);
-
-
-  //zkoseni dna
-  difference(){
-      hull(){
-          translate([0,0,bottom_height])
-              cylinder(h=0.1,d=connecting_diameter,$fn=100);
-
-          cylinder(h=0.1,d=bearing_EFOM_10_d1+2,$fn=100);
-      }
-      cylinder(h=bottom_height+1,d=M6_screw_diameter,$fn=100);
-  }
-
-  //cast ktera prochazi loziskem
-  difference() {
-      //vnejsi povrch
-      translate([0,0,-((bearing_EFOM_10_h/2)-0.5)])
-          cylinder(h=(bearing_EFOM_10_h/2)-0.5,d=bearing_EFOM_10_d1,$fn=100);
-
-      //vnitrni povrch
-      translate([0,0,-((bearing_EFOM_10_h/2)-0.5)])
-          cylinder(h=(bearing_EFOM_10_h/2)-0.5,d=M6_screw_diameter,$fn=100);
-  }
+*/
 }
 
-888_4002();
+difference(){
+  888_4002();
+  translate([0,0,-50]) cube(100);
+
+}
