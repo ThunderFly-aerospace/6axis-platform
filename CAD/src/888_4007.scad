@@ -12,7 +12,7 @@ module 888_4007(){
 		for ( i = [0 : 15 : 360] ){
 			translate([sin(i)*diameter/2,cos(i)*diameter/2,0]) cylinder(r=tooth_diameter/2,h=9, $fn=16, center = true);
 		}
-		cylinder(d=9.1,h=16,$fn=6, center = true);
+		cylinder(d=knob_shaft_diameter,h=16,$fn=6, center = true);
 	}
 }
 
