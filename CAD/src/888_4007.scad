@@ -1,6 +1,6 @@
 // Diameter of the whole holder
 diameter = 20;
-knob_shaft_diameter = 9.65;
+knob_shaft_diameter = 9.6;
 // Tooth diameter
 tooth_diameter = 4;
 
